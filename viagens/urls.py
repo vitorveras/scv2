@@ -16,5 +16,5 @@ urlpatterns = [
      path("adm/autorizar/<int:pk>/", views.AutorizaADM, name="viagens-autorizar-adm"),
      path("adm/naoautorizar/<int:pk>/", views.NaoAutorizaADM, name="viagens-removerautorizacao-adm"),
      path("realizar/<int:pk>/", views.ViagemRealiza, name="viagens-realizar"),
-     path("Impressao/<int:pk>/", views.RelatorioViagem, name="viagens-Impressao"),
+     path("imprimir/<int:pk>/", views.RelatorioViagem, name="viagens-Impressao"),
 ]

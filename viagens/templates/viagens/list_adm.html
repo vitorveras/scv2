@@ -46,7 +46,7 @@
                         <a href="{% url 'viagens:viagens-realizar' viagem.id %}" class="btn btn-outline-dark" data-toggle="tooltip" title="Realizar Viagem"><i class="bi bi-car-front-fill"></i></a>
                     {% endif %}
                     {% if viagem.Data_Hora_ini != None %}
-                        <a href="{% url 'viagens:viagens-Impressao' viagem.id %}" class="btn btn-outline-dark" data-toggle="tooltip" title="Imprimir Viagem"><i class="bi bi-printer"></i></a>
+                        <a href="{% url 'viagens:viagens-Impressao' viagem.id %}" class="btn btn-outline-dark" data-toggle="tooltip" title="Imprimir Viagem" target="_blank"><i class="bi bi-printer"></i></a>
                     {% endif %}
             {% endif %}
             </td>
