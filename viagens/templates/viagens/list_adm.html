@@ -28,10 +28,12 @@
             <td>{{viagem.funcionario_solicitante}} - {{ viagem.funcionario_solicitante.setor }}</td>
             <td>
             {% if user.is_authenticated %}
-                    {% if not viagem.Efetivada %}
-                        <a href="{% url 'viagens:viagens-edit' viagem.id %}" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"><i class="bi bi-pencil"></i></a>
-                        <a href="{% url 'viagens:viagens-delete' viagem.id %}" class="btn btn-outline-danger" data-toggle="tooltip" title="Remover"><i class="bi bi-trash"></i></a>
-                    {% endif %}
+                {% if not viagem.Aprovado %}
+                    <a href="{% url 'viagens:viagens-edit' viagem.id %}" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"><i class="bi bi-pencil"></i></a>
+                    <a href="{% url 'viagens:viagens-delete' viagem.id %}" class="btn btn-outline-danger" data-toggle="tooltip" title="Remover"><i class="bi bi-trash"></i></a>
+                {% endif %}
+            {% endif %}
+            {% if user.is_staff %}
                     {% if not viagem.Efetivada %}
                         {% if not viagem.Aprovado %}
                             <a href="{% url 'viagens:viagens-autorizar-adm' viagem.id %}" class="btn btn-outline-success" data-toggle="tooltip" title="Autorizar"><i class="bi bi-clipboard-check"></i></a>
@@ -43,10 +45,9 @@
                     {% if viagem.Aprovado %}
                         <a href="{% url 'viagens:viagens-realizar' viagem.id %}" class="btn btn-outline-dark" data-toggle="tooltip" title="Realizar Viagem"><i class="bi bi-car-front-fill"></i></a>
                     {% endif %}
-                    {% if viagem.Aprovado and viagem.Data_Hora_ini != None %}
-                        <a href="{% url 'viagens:viagens-Impressao' viagem.id %}" class="btn btn-outline-light" data-toggle="tooltip" title="Imprimir Viagem"><i class="bi bi-printer"></i></a>
+                    {% if viagem.Data_Hora_ini != None %}
+                        <a href="{% url 'viagens:viagens-Impressao' viagem.id %}" class="btn btn-outline-dark" data-toggle="tooltip" title="Imprimir Viagem"><i class="bi bi-printer"></i></a>
                     {% endif %}
-
             {% endif %}
             </td>
         </tr>

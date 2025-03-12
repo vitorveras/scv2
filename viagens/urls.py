@@ -5,8 +5,8 @@ app_name = 'viagens'
 
 urlpatterns = [
      path("", views.IndexView.as_view(), name="viagens-list"),
-     path("", views.IndexViewPendente.as_view(), name="viagens-list-Pend"),
-     path("listAdm/", views.IndexViewPendenteADM, name="viagens-list-PADM"),
+     path("adm/list", views.IndexViewPendente.as_view(), name="viagens-list-Pend"),
+     # path("listAdm/", views.IndexViewPendenteADM, name="viagens-list-PADM"),
      path("adicionar/", views.CreateView.as_view(), name="viagens-add"),
      path("editar/<int:pk>/", views.UpdateView.as_view(), name="viagens-edit"),
      path("remover/<int:pk>/", views.DeleteView.as_view(), name="viagens-delete"),

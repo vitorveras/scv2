@@ -27,12 +27,6 @@
             <td>{{viagem.Objetivo}}</td>
             <td>{{viagem.funcionario_solicitante}} - {{ viagem.funcionario_solicitante.setor }}</td>
             <td>
-            {% if user.is_authenticated %}
-                {% if not viagem.Aprovado %}
-                    <a href="{% url 'viagens:viagens-edit' viagem.id %}" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"><i class="bi bi-pencil"></i></a>
-                    <a href="{% url 'viagens:viagens-delete' viagem.id %}" class="btn btn-outline-danger" data-toggle="tooltip" title="Remover"><i class="bi bi-trash"></i></a>
-                {% endif %}
-            {% endif %}
             </td>
         </tr>
         {% endfor %}

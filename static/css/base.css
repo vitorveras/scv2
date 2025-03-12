@@ -18,3 +18,9 @@
 .card-inicio:hover {
     background-color: #26A737;
 }
+
+.logo-img {
+    max-width: 298px;
+    max-height: 98px;
+
+}

@@ -31,14 +31,14 @@ def AutorizaADM(request, pk):
     viag = get_object_or_404(Viagens, pk=pk)
     viag.Aprovado = True
     viag.save()
-    return redirect('viagens:viagens-list-PADM')
+    return redirect('viagens:viagens-list-Pend')
 
 @adminstaff_required
 def NaoAutorizaADM(request, pk):
     viag = get_object_or_404(Viagens, pk=pk)
     viag.Aprovado = False
     viag.save()
-    return redirect('viagens:viagens-list-PADM')
+    return redirect('viagens:viagens-list-Pend')
 
 
 # Create your views here.
@@ -57,7 +57,7 @@ class IndexView(LoginRequiredMixin, generic.ListView):
 
 
 class IndexViewPendente(LoginRequiredMixin, generic.ListView):
-    template_name = 'viagens/list.html'
+    template_name = 'viagens/list_adm.html'
     context_object_name = 'Viagens'
 
     def get_queryset(self):
@@ -75,7 +75,7 @@ def IndexViewPendenteADM(request):
      print('Entrou')
      queryset = Viagens.objects.all().order_by('Data_Viagem').filter(Efetivada=False)
      context = {'Viagens': queryset, 'selecionado': 'viagens'}
-     return render(request, "viagens/list_adm.html", context)
+     return render(request, "viagens/list.html", context)
 
 
 class CreateView(LoginRequiredMixin, generic.CreateView):
@@ -141,7 +141,7 @@ def ViagemRealiza(request, pk):
                 viag.km_rodado = viag.Km_Final - viag.Km_Inicio
                 viag.Efetivada = True
             form.save()
-        return redirect('viagens:viagens-list-PADM')
+        return redirect('viagens:viagens-list-Pend')
 
     return render(
         request=request,
