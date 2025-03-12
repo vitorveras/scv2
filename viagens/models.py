@@ -36,6 +36,18 @@ class Viagens(models.Model):
         else:
                 return f'{self.DatahoraSolic.__format__("%d/%m/%Y %H:%M:%S")}'
 
+    def Datahora_ini_Format(self):
+        if self.Data_Hora_ini is None:
+                return ''
+        else:
+                return f'{self.Data_Hora_ini.__format__("%d/%m/%Y %H:%M:%S")}'
+
+    def Datahora_fim_Format(self):
+        if self.Data_Hora_fim is None:
+                return ''
+        else:
+                return f'{self.Data_Hora_fim.__format__("%d/%m/%Y %H:%M:%S")}'
+
     def __str__(self):
         return f'{self.Data_Viagem}  -  {self.Objetivo}   - {self.funcionario_solicitante}'
 
