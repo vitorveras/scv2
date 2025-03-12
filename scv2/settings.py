@@ -71,9 +71,9 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG')
 
-ALLOWED_HOSTS = ['scv2.cee.ce.gov.br', '127.0.0.1']
+ALLOWED_HOSTS = ['scv2.cee.ce.gov.br', 'scv.cee.ce.gov.br', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = ['https://visita.cee.ce.gov.br']
+CSRF_TRUSTED_ORIGINS = ['https://scv2.cee.ce.gov.br', 'https://scv.cee.ce.gov.br']
 
 LOGOUT_REDIRECT_URL="/"
 LOGIN_REDIRECT_URL="/"
