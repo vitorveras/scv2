@@ -32,4 +32,4 @@ class Motorista(models.Model):
         verbose_name_plural = 'Motoristas'
 
     def get_absolute_url(self):
-        return reverse('Motorista:motorista-list')
+        return reverse('motoristas:motorista-list')

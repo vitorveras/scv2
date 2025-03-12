@@ -45,4 +45,4 @@ class Viagens(models.Model):
         verbose_name_plural = 'Viagens'
 
     def get_absolute_url(self):
-        return reverse('Viagens:Viagens-list')
+        return reverse('viagens:viagens-list')

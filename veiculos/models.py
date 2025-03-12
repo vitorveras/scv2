@@ -18,7 +18,7 @@ class Marca(models.Model):
         verbose_name_plural = 'Marcas'
 
     def get_absolute_url(self):
-        return reverse('Marca:Marca-list')
+        return reverse('veiculos:veiculos-list')
 
 
 
@@ -34,7 +34,7 @@ class Modelo(models.Model):
         verbose_name_plural = 'Modelos'
 
     def get_absolute_url(self):
-        return reverse('Modelo:Modelo-list')
+        return reverse('veiculos:veiculos-list')
 
 
 class Cor(models.Model):
@@ -49,7 +49,7 @@ class Cor(models.Model):
         verbose_name_plural = 'Cores'
 
     def get_absolute_url(self):
-        return reverse('Cor:Cor-list')
+        return reverse('veiculos:veiculos-list')
 
 class Combustivel(models.Model):
     descricao = models.CharField('Combustivel', max_length=20)
@@ -63,7 +63,7 @@ class Combustivel(models.Model):
         verbose_name_plural = 'Combustíveis'
 
     def get_absolute_url(self):
-        return reverse('Combustivel:Combustivel-list')
+        return reverse('veiculos:veiculos-list')
 
 class Veiculos(models.Model):
     placa = models.CharField('Placa', unique=True, max_length=20)
@@ -87,5 +87,5 @@ class Veiculos(models.Model):
         verbose_name_plural = 'Veiculos'
 
     def get_absolute_url(self):
-        return reverse('veiculos:Veiculos-list')
+        return reverse('veiculos:veiculos-list')
     

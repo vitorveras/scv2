@@ -37,7 +37,7 @@ class UpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Motorista
     form_class = MotoristaForm
     template_name = 'motoristas/form.html'
-    success_url = reverse_lazy('Motorista:motorista-list')
+    success_url = reverse_lazy('motorista:motorista-list')
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

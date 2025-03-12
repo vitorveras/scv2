@@ -13,7 +13,7 @@ def novoSetor(request):
     form = SetorForm(request.POST or None)
     if form.is_valid():
             form.save()
-            return redirect('listarSetores')
+            return redirect('funcionarios:setor-list')
  
     context = { 'sysid': settings.SYSID,'selecionado': 'setor', 'form': form, 'texto': 'Novo'}
     return render(request, 'setor/form.html', context)
@@ -27,7 +27,7 @@ def editarSetor(request, id):
 
     if form.is_valid():
         form.save()
-        return redirect('listarSetores')
+        return redirect('funcionarios:setor-list')
  
     context = { 'sysid': settings.SYSID,'selecionado': 'setor', 'form': form, 'texto': 'Editar'}
     return render(request, 'setor/form.html', context)
@@ -46,7 +46,7 @@ def removerSetor(request, id):
     setor = get_object_or_404(Setor, pk=id)
     if request.method=='POST':
         setor.delete()
-        return redirect('listarSetores')
+        return redirect('funcionarios:setor-list')
     context = { 'sysid': settings.SYSID,'selecionado': 'setor', 'setor': setor}
     return render(request, 'setor/remover.html', context)
 
@@ -57,7 +57,7 @@ def novoFuncionario(request):
     form = FuncionarioForm(request.POST or None)
     if form.is_valid():
             form.save()
-            return redirect('listarFuncionarios')
+            return redirect('funcionarios:funcionario-list')
  
     context = { 'sysid': settings.SYSID,'selecionado': 'funcionario', 'form': form, 'texto': 'Novo'}
     return render(request, 'funcionario/form.html', context)
@@ -70,7 +70,7 @@ def editarFuncionario(request, id):
 
     if form.is_valid():
         form.save()
-        return redirect('listarFuncionarios')
+        return redirect('funcionarios:funcionario-list')
  
     context = { 'sysid': settings.SYSID,'selecionado': 'funcionario', 'form': form, 'texto': 'Editar'}
     return render(request, 'funcionario/form.html', context)
@@ -89,6 +89,6 @@ def removerFuncionario(request, id):
     funcionario = get_object_or_404(Funcionario, pk=id)
     if request.method=='POST':
         funcionario.delete()
-        return redirect('listarFuncionarios')
+        return redirect('funcionarios:funcionario-list')
     context = { 'sysid': settings.SYSID,'selecionado': 'funcionario', 'funcionario': funcionario}
     return render(request, 'funcionario/remover.html', context)

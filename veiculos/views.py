@@ -24,7 +24,7 @@ class CreateView(LoginRequiredMixin, generic.CreateView):
     model = Veiculos
     form_class = VeiculosForm
     template_name = 'veiculos/form.html'
-    success_url = reverse_lazy('Veiculos:veiculos-list')
+    success_url = reverse_lazy('veiculos:veiculos-list')
 
 
     def get_context_data(self, **kwargs):
@@ -36,7 +36,7 @@ class UpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Veiculos
     form_class = VeiculosForm
     template_name = 'veiculos/form.html'
-    success_url = reverse_lazy('Veiculos:veiculos-list')
+    success_url = reverse_lazy('veiculos:veiculos-list')
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -45,7 +45,7 @@ class UpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class DeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Veiculos
-    success_url = reverse_lazy('Veiculos:veiculos-list')
+    success_url = reverse_lazy('veiculos:veiculos-list')
     template_name = 'veiculos/confirm_delete.html'
     context_object_name = 'veiculos'
     
