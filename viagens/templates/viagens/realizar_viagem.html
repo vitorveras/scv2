@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Realizar Viagem{% endblock %}
+
+{% block contentTitle %}Realizar Viagem{% endblock %}
+
+{% block content %}
+    <table id="listaViagens" class="table table-responsive-xl">
+        <thead>
+            <th scope="col">Data</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Destino</th>
+            <th scope="col">Solicitante</th>
+        </thead>
+    <tbody>
+        <tr>
+            <td>{{selecionado.Data_Viagem_Format }}</td>
+            <td>{{selecionado.Hora_Viagem }}</td>
+            <td>{{selecionado.Destino}}</td>
+            <td>{{selecionado.funcionario_solicitante}} - {{ selecionado.funcionario_solicitante.setor }}</td>
+        </tr>
+    </tbody>
+    </table>
+
+    <table id="Detalhes_Viagem" class="table table-responsive-xl">
+        <thead>
+            <th scope="col">Objetivo</th>
+            <th scope="col">Passageiros</th>
+        </thead>
+        <tbody>
+            <tr>
+            <td>{{selecionado.Objetivo }}</td>
+            <td>{{selecionado.Passageiros }}</td>
+            </tr>
+        </tbody>
+    </table>
+        <br>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    {{ form.Data_Hora_ini | as_crispy_field }}
+                    {{ form.Veiculo_viag | as_crispy_field }}
+                    {{ form.Motorista_viag | as_crispy_field }}
+                    {{ form.Km_Inicio | as_crispy_field }}
+                </div>
+                <div class="col">
+                    {{ form.Data_Hora_fim | as_crispy_field }}
+                    {{ form.Km_Final | as_crispy_field }}
+                    {{ form.Ocorrencias | as_crispy_field }}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-secondary" id="id_salvar"><i class="bi bi-floppy"></i> Salvar</button>
+            <a href="{% url 'viagens:viagens-list-PADM' %}" class="btn btn-secondary"><i class="bi bi-arrow-counterclockwise"></i> Voltar</a>
+        </form>
+
+{% endblock %}
+

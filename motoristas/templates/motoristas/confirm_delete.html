@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Remover Motorista{% endblock %}
+
+{% block contentTitle %}Remover Motorista{% endblock %}
+
+{% block content %}
+
+<p><b><i class="bi bi-person-fill"></i> </b>{{motorista.Nome_Motorista}}</p>
+<p><b><i class="bi bi-person-rolodex"></i> </b>{{motorista.CPF}}</p>
+<p><b><i class="bi bi-calendar-event"></i> </b>{{motorista.Data_Nascimento_Format}}</p>
+<p><b><i class="bi bi-person-vcard"></i> </b>{{motorista.CNH}}</p>
+<p><b><i class="bi bi-calendar-event"></i> </b>{{motorista.Data_Vencimento_Format}}</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <div class="mt-3">
+        <button type="submit" class="btn btn-secondary"><i class="bi bi-trash"></i> Remover</button>
+        <a href="{% url 'motoristas:motorista-list' %}" class="btn btn-secondary"><i class="bi bi-arrow-counterclockwise"></i> Voltar</a>
+    </div>
+</form>
+
+{% endblock %}

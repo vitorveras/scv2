@@ -1,0 +1,72 @@
+
+{% load static %}
+<nav class="navbar navbar-expand-md bg-body" style="padding-top: 10px;padding-bottom: 10px;">
+    <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span>SCV</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav ms-auto">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link {% if selecionado == "inicio" %}active{% endif %}"  href="{% url 'index' %}">Início</a>
+                </li>
+                <li class="nav-item  dropdown">
+                    <a class="nav-link  dropdown-toggle {% if selecionado == "relatorios" %}active{% endif %}" href="#" id="relatoriosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Relatórios</a>
+                    <ul class="dropdown-menu" aria-labelledby="relatoriosDropdown">
+                        <li><a class="dropdown-item" href="{% url "relatorios:resumo-Veiculos" %}">Veículos</a></li>
+                        <li><a class="dropdown-item" href="{% url "relatorios:resumo-Motorista" %}">Motoristas</a></li>
+                        <li><a class="dropdown-item" href="{% url "relatorios:resumo-Solicitante" %}">Solicitante</a></li>
+                        <li><a class="dropdown-item" href="{% url "relatorios:Geral" %}">Geral</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item  dropdown">
+                    <a class="nav-link  dropdown-toggle {% if selecionado == "viagens" %}active{% endif %}" href="#" id="ViagensDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viagens</a>
+                    <ul class="dropdown-menu" aria-labelledby="ViagensDropdown">
+                        <li><a class="dropdown-item" href="{% url "viagens:viagens-add" %}">Adicionar</a></li>
+                        <li><a class="dropdown-item" href="{% url "viagens:viagens-list" %}">Listar (Geral)</a></li>
+                        <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item" href="{% url "viagens:viagens-list-Pend" %}">Listar (Pendentes)</a></li>
+                        <li><a class="dropdown-item" href="{% url "viagens:viagens-list-PADM" %}">Listar (Pendentes ADM)</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item  dropdown">
+                    <a class="nav-link  dropdown-toggle {% if selecionado == "motoristas" %}active{% endif %}" href="#" id="MotoristaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Motoristas</a>
+                    <ul class="dropdown-menu" aria-labelledby="MotoristaDropdown">
+                        <li><a class="dropdown-item" href="{% url "motoristas:motorista-add" %}">Adicionar</a></li>
+                        <li><a class="dropdown-item" href="{% url "motoristas:motorista-list" %}">Listar</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item  dropdown">
+                    <a class="nav-link  dropdown-toggle {% if selecionado == "veiculos" %}active{% endif %}" href="#" id="VeiculosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Veiculos</a>
+                    <ul class="dropdown-menu" aria-labelledby="VeiculosDropdown">
+                        <li><a class="dropdown-item" href="{% url "veiculos:veiculos-add" %}">Adicionar</a></li>
+                        <li><a class="dropdown-item" href="{% url "veiculos:veiculos-list" %}">Listar</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item  dropdown">
+                    <a class="nav-link  dropdown-toggle {% if selecionado == "funcionario" %}active{% endif %}" href="#" id="setoresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Funcionários</a>
+                    <ul class="dropdown-menu" aria-labelledby="setoresDropdown">
+                        <li><a class="dropdown-item" href="{% url "funcionarios:funcionario-add" %}">Adicionar</a></li>
+                        <li><a class="dropdown-item" href="{% url "funcionarios:funcionario-list" %}">Listar</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item  dropdown">
+                    <a class="nav-link  dropdown-toggle {% if selecionado == "setor" %}active{% endif %}" href="#" id="setoresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Setores</a>
+                    <ul class="dropdown-menu" aria-labelledby="setoresDropdown">
+                        <li><a class="dropdown-item" href="{% url "funcionarios:setor-add" %}">Adicionar</a></li>
+                        <li><a class="dropdown-item" href="{% url "funcionarios:setor-list" %}">Listar</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger ms-md-2 btn-success">Sair</button>
+                    </form>
+                </li>
+            {% else %}
+                <li>
+                    <a class="btn btn-success ms-md-2 btn-success" href="{% url 'login'%}">Entrar</a>
+                </li>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+<img src="{% static 'img/bg-bottom-menu.svg' %}">

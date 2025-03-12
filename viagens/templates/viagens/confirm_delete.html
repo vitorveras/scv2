@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Remover Viagem{% endblock %}
+
+{% block contentTitle %}Remover Solicitação de Viagem{% endblock %}
+
+{% block content %}
+
+<h3>Gostaria de remover a Solicitação de Viagem?</h3>
+<br>
+<p><b><i class="bi bi-calendar-event"></i> </b>{{viagem.Data_Viagem}}</p>
+<p><b><i class="bi bi-clock-fill"></i> </b>{{viagem.Hora_Viagem}}</p>
+<p><b><i class="bi bi-justify"></i> </b>{{viagem.Destino}}</p>
+<p><b><i class="bi bi-person"></i> </b>{{viagem.funcionario_solicitante}}</p>
+<p><b><i class="bi bi-card-text"></i> </b>{{viagem.Objetivo}}</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <div class="mt-3">
+        <button type="submit" class="btn btn-secondary btn-sm"><i class="bi bi-trash"></i> Remover</button>
+        <a href="{% url 'Viagens:Viagens-list' %}" class="btn btn-secondary btn-sm"><i class="bi bi-arrow-counterclockwise"></i> Voltar</a>
+    </div>
+</form>
+
+{% endblock %}

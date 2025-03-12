@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Dados do Motorista{% endblock %}
+
+{% block contentTitle %}Dados do Motorista{% endblock %}
+
+{% block content %}
+
+<p><b><i class="bi bi-person-fill"></i> </b>{{motorista.Nome_Motorista}}</p>
+<p><b><i class="bi bi-person-rolodex"></i> </b>{{motorista.CPF}}</p>
+<p><b><i class="bi bi-calendar-event"></i> </b>{{motorista.Data_Nascimento_Format}}</p>
+<p><b><i class="bi bi-person-vcard"></i> </b>{{motorista.CNH}}</p>
+<p><b><i class="bi bi-calendar-event"></i> </b>{{motorista.Data_Vencimento_Format}}</p>
+<a href="{% url 'motoristas:motorista-list' %}" class="btn btn-secondary"><i class="bi bi-arrow-counterclockwise"></i> Voltar</a>
+
+{% endblock %}

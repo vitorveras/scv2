@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Remover Funcionário{% endblock %}
+
+{% block contentTitle %}Remover Funcionário{% endblock %}
+
+{% block content %}
+    <p>Gostaria de remover o funcionario <b>{{funcionario.usuario}}</b> do setor <b>{{funcionario.setor}}</b>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-secondary"><i class="bi bi-trash"></i> Remover</button>
+        <a href="{% url 'funcionarios:funcionario-list' %}" class="btn btn-secondary"><i class="bi bi-arrow-counterclockwise"></i> Voltar</a>
+    </form>
+{% endblock %}

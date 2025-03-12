@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Adiconar/Editar Funcionário{% endblock %}
+
+{% block contentTitle %}Adiconar/Editar Funcionário{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-secondary" id="id_salvar"><i class="bi bi-floppy"></i> Salvar</button>
+        <a href="{% url 'funcionarios:funcionario-list' %}" class="btn btn-secondary"><i class="bi bi-arrow-counterclockwise"></i> Voltar</a>
+    </form>
+{% endblock %}

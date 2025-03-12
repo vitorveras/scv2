@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Remover Setor{% endblock %}
+
+{% block contentTitle %}Remover Setor{% endblock %}
+
+{% block content %}
+    <p>Gostaria de remover o setor <b>{{setor.sigla}} - {{setor.nome}}</b>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-secondary"><i class="bi bi-trash"></i> Remover</button>
+        <a href="{% url 'funcionarios:setor-list' %}" class="btn btn-secondary"><i class="bi bi-arrow-counterclockwise"></i> Voltar</a>
+    </form>
+
+{% endblock %}

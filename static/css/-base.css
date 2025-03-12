@@ -1,0 +1,71 @@
+.BgVerdeGrad {
+    background: linear-gradient(135deg, #26A737, #2DB39E);
+    text-align: center;
+}
+
+.rodape {
+    background: linear-gradient(135deg, #2DB39E, #26A737);
+    text-align: center;
+}
+
+body {
+    background-color: #F9FAFB;
+    font-family: 'Roboto', sans-serif;
+    color: #465564
+}
+
+.hr {
+    border:2px solid #f59c00;
+}
+
+.logo-img {
+    max-width: 298px;
+    max-height: 98px;
+}
+
+.bar-img {
+    border-bottom: 5px solid #F59C01;
+}
+
+.active  { 
+    font-weight: bold; 
+}
+
+.card-inicio a {
+    color: #26A737;
+}
+
+.card-inicio a:hover {
+    color: white;
+}
+
+.card-inicio:hover {
+    background-color: #26A737;
+}
+
+.nav-link:hover {
+    background-color: #26A737;
+    color: white !important;
+}
+
+.navbar-nav {
+    font-size: larger;
+}
+
+.dropdown-item:hover {
+    background-color: #26A737;
+    color: white;
+}
+.orderable a {
+    color: #465564;
+}
+
+.page-link {
+    color: #465564;
+}
+
+.page-item.active a {
+    background-color: #6c757d;
+    border-color: #6c757d;
+
+}

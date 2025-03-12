@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Relatório{% endblock %}
+
+{% block contentTitle %}Consultar Dados{% endblock %}
+
+{% block content %}
+{% block project_extrajs %}
+    {% include "slick_reporting/js_resources.html" %}
+    {% block extrajs %}
+    {% endblock %}
+{% endblock %}
+
+{% endblock %}

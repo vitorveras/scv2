@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Remover Veículo{% endblock %}
+
+{% block contentTitle %}Remover Veículo{% endblock %}
+
+{% block content %}
+
+<p><b><i class="bi bi-car-front"></i> </b>{{veiculos.placa}}</p>
+<p><b><i class="bi bi-card-text"></i> </b>{{veiculos.descricao}}</p>
+<p><b><i class="bi bi-file-richtext-fill"></i> </b>{{veiculos.marca}}</p>
+<p><b><i class="bi bi-list"></i> </b>{{veiculos.modelo}}</p>
+<p><b><i class="bi bi-brush"></i> </b>{{veiculos.cor}}</p>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <div class="mt-3">
+        <button type="submit" class="btn btn-secondary"><i class="bi bi-trash"></i> Remover</button>
+        <a href="{% url 'veiculos:veiculos-list' %}" class="btn btn-secondary"><i class="bi bi-arrow-counterclockwise"></i> Voltar</a>
+    </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Motoristas{% endblock %}
+
+{% block contentTitle %}Lista de Motoristas{% endblock %}
+
+{% block content %}
+    {% if motorista %}
+    <table id="listaMotoristas" class="table table-striped mt-3">
+        <thead>
+                <th scope="col">Nome do Motorista</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Data Nascimento</th>
+                <th scope="col">CNH</th>
+                <th scope="col">Data Vencimento</th>
+                <th scope="col">Opções</th>
+        </thead>
+        <tbody>
+        {% for mot in motorista%}
+        <tr>
+            <td><a href="{% url 'motoristas:motorista-show' mot.id %}"></a> {{ mot.Nome_Motorista }}</td>
+            <td>{{mot.CPF }}</td>
+            <td>{{mot.Data_Nascimento_Format}}</td>
+            <td>{{mot.CNH}}</td>
+            <td>{{mot.Data_Vencimento_Format}}</td>
+            <td>
+            {% if user.is_authenticated %}
+                <a href="{% url 'motoristas:motorista-edit' mot.id %}" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"><i class="bi bi-pencil"></i></a>
+                <a href="{% url 'motoristas:motorista-delete' mot.id %}" class="btn btn-outline-danger" data-toggle="tooltip" title="Remover"><i class="bi bi-trash"></i></a>
+            {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+    <div class='mt-3'>
+        <a href="{% url 'motoristas:motorista-add' %}" class="btn btn-secondary"><i class="bi bi-plus-lg"></i> Adicionar</a>
+    </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block project_extrajs %}
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+
+<script>
+    new DataTable('#listaMotoristas', {
+        responsive: true,
+        pageLength: 50,
+        language: {
+            url:"https://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json"
+        }
+    });
+
+</script>
+
+{% endblock %}

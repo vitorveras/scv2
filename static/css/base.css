@@ -1,0 +1,20 @@
+.dropdown-item:hover {
+    background-color: #26A737;
+    color: white;
+}
+
+.active  { 
+    font-weight: bold; 
+}
+
+.card-inicio a {
+    color: #26A737;
+}
+
+.card-inicio a:hover {
+    color: white;
+}
+
+.card-inicio:hover {
+    background-color: #26A737;
+}

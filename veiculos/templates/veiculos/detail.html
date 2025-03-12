@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Dados do Veículo{% endblock %}
+
+{% block contentTitle %}Dados do Veículo{% endblock %}
+
+{% block content %}
+
+<p><b><i class="bi bi-person"></i> </b>{{veiculos.placa}}</p>
+<p><b><i class="bi bi-hash"></i> </b>{{veiculos.descricao}}</p>
+<p><b><i class="bi bi-cake2"></i> </b>{{veiculos.marca}}</p>
+<p><b><i class="bi bi-phone"></i> </b>{{veiculos.modelo}}</p>
+<p><b><i class="bi bi-phone"></i> </b>{{veiculos.cor}}</p>
+<p><b><i class="bi bi-phone"></i> </b>{{veiculos.chassi}}</p>
+<p><b><i class="bi bi-phone"></i> </b>{{veiculos.datacompra}}</p>
+<p><b><i class="bi bi-phone"></i> </b>{{veiculos.anomodelo}}</p>
+<p><b><i class="bi bi-phone"></i> </b>{{veiculos.anofabricacao}}</p>
+<p><b><i class="bi bi-phone"></i> </b>{{veiculos.combustivel}}</p>
+<p><b><i class="bi bi-phone"></i> </b>{{veiculos.kmManutencao}}</p>
+<a href="{% url 'veiculos:veiculos-list' %}" class="btn btn-secondary"><i class="bi bi-arrow-counterclockwise"></i> Voltar</a>
+
+{% endblock %}
